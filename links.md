@@ -1,0 +1,1 @@
+https://digilent.com/reference/programmable-logic/arty-a7/reference-manual
