@@ -1,3 +1,0 @@
-[submodule "vega-sdk"]
-    path = vega-sdk
-    url = https://github.com/joeldanphilip/c2s-buildtools
