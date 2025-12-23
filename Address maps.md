@@ -8,7 +8,7 @@
 | **m04**  | **DDR**               | `0x80000000`     | 28               | **256 M**        | `0x80000000` $\to$ `0x8FFFFFFF` |
 | **m05**  | **Ethernet**          | `0x20030000`     | 15               | **32 K**         | `0x20030000` $\to$ `0x20037FFF` |
 | **m06**  | **PLIC**              | `0x20010000`     | 15               | **32 K**         | `0x20010000` $\to$ `0x20017FFF` |
-| **m07**  | **Math IP (FPU)**     | `0x10100000`     | 12               | **4 K**          | `0x10100000` $\to$ `0x10100FFF` |
+| **m07**  | **Flight Math Unit (FMU)**     | `0x10100000`     | 12               | **4 K**          | `0x10100000` $\to$ `0x10100FFF` |
 | **m08**  | **AXI Interconnect**  | `0x10110000`     | **16**           | **64 K**         | `0x10110000` $\to$ `0x1011FFFF` |
 
 | **Sub-Slot** | **Module**             | **Base Address** | **Offset**    | **Address Range**                   |
@@ -22,3 +22,18 @@
 | **6**        | **IIC 1 (Mag/Baro)**   | `0x10116000`     | `+0x6000`     | `0x10116000` $\to$ `0x10116FFF`     |
 | **7**        | **PWM (Motors)**       | `0x10117000`     | `+0x7000`     | `0x10117000` $\to$ `0x10117FFF`     |
 | **8**        | **XADC (Battery)**     | **`0x10118000`** | **`+0x8000`** | **`0x10118000` $\to$ `0x10118FFF`** |
+
+
+for fmu
+#define OFF_DIV_A       0x00 // Dividend
+#define OFF_DIV_B       0x04 // Divisor
+#define OFF_DIV_RES     0x08 // Quotient
+
+#define OFF_ATAN_PACK   0x10 // {Y[31:16], X[15:0]}
+#define OFF_ATAN_RES    0x14 // Scaled Angle (Q3.13)
+
+#define OFF_SINCOS_IN   0x20 // Scaled Angle (Q3.13)
+#define OFF_SINCOS_RES  0x24 // {Sin[31:16], Cos[15:0]} (Q2.14)
+
+#define OFF_SQRT_IN     0x30 // Input Value
+#define OFF_SQRT_RES    0x34 // Result
